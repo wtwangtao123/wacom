@@ -1,0 +1,50 @@
+body {
+    background-color: #F4F6F7;
+}
+.container-fluid {
+    padding: 0;
+}
+/* .container-fluid div {
+    border: 1px solid red;
+    
+} */
+
+/* 列表的样式 */
+.my_border {
+    border-top: 2px solid #fff;
+    border-bottom: 2px solid #fff;
+    
+    padding: 50px 0px;
+}
+.row>div>ul>li>h5 {
+    font-size: 16px;
+    font-weight: 800;
+    margin-bottom: 20px;
+    color: #666666;
+ 
+    /* border: 1px solid red; */
+}
+.row>div>ul>li:not(:first-child)>a {
+    color: #666666;
+    line-height: 30px;
+    font-size: 13px;
+}
+.my_font_head {
+    font: normal 600 15px 'Arial, Microsoft YaHei, Simsun';
+    margin-left: 5px;
+    color: #666666;
+}
+.my_font_footer {
+    font: normal 400 11px/10px 'Arial, Microsoft YaHei, Simsun';
+    margin-top: 12px;
+    color: #999;
+    
+}
+.my_font_footer>p {
+    margin-bottom: 10px;
+}
+.my_img {
+    width: 92px;   
+}
+
+

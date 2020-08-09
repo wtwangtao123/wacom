@@ -1,0 +1,109 @@
+body {
+    background-color: #F4F6F7;
+}
+.container-fluid {
+    padding: 0;
+}
+.container-fluid div {
+    border: 1px solid red;
+    
+}
+.container div{
+    border: 1px solid green;
+}
+.my_style {
+    height: 50px;
+    line-height: 50px;
+    background-color: #000;
+    font-size: 14px;
+    display:flex;
+}
+.my_btn_group {
+    list-style: none;
+}
+.my_btn_group>li:nth-child(odd) {
+    margin: 0px 10px;
+    width: 200px;
+}
+.my_btn_group>li:nth-child(even):after {
+    content:'|';
+    margin: 0px 5px;
+    color: #565B64;
+}
+.my_btn_group>li>a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 14px;
+    font-family: Arial, Microsoft YaHei, Simsun;
+    /* font: normal 700 18px '宋体'; */
+}
+.my_btn_group>li>a:hover {
+    color: #00a1e1;
+}
+.my_car {
+    width: 120px;
+    /* border: 1px solid #fff; */
+    background-color: #424242;
+}
+.my_car:hover {
+    background-color: #00a1e1;
+}
+ul.my_btn_group>li {
+    position: relative;
+    cursor: pointer;
+}
+ul.my_btn_group>li:nth-child(3) {
+    color: #00a1e1;
+}
+ul.my_btn_group>li:nth-child(3):after {
+    content: 'v';  
+    color: #fff;
+}
+ul.my_btn_group>li>ul {
+    border: 1px solid #d6d6d6;
+    display: none;
+    color: #00a1e1;
+    line-height: 25px;
+    width: 110px;
+    position: absolute;
+    left: -15px;
+    top: 50px;
+}
+ul.my_btn_group>li:hover>ul {
+    display: block;
+    /* color: #00a1e1; */
+}
+ul.my_btn_group>li>ul>li {
+    position: relative;
+    padding-top: 1px; 
+    width: 108px;
+    /* border: 1px solid #d6d6d6; */
+}
+ul.my_btn_group>li>ul>li:first-child {
+    border-bottom: 1px solid #d6d6d6;
+}
+ul.my_btn_group>li>ul>li::before {
+    content: ':·';
+    position: absolute;
+    top:0%;
+    left: 5%;
+    padding-left: 5px;
+}
+/* 顶部导航栏 */
+ul.nav>li>a {
+     padding: 8px 8px;
+     color: black;
+     position: relative;
+}
+ul.nav>li>a:focus:after {
+    position: absolute;
+    content: '';
+    top: 100%;
+    left:0%;
+    width: 100%;
+    border-bottom: 2px solid #00A1E1;
+}
+
+
+
+
