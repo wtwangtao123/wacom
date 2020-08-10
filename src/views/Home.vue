@@ -40,8 +40,8 @@
     <!-- 轮播图 -->
     <div class="my_carousel">
       <el-carousel :interval="5000" arrow="always" height="460px">
-        <el-carousel-item v-for="item in 7" :key="item">
-          <h3>{{ item }}</h3>
+        <el-carousel-item v-for="(value,i) of carousel" :key="i">
+          <img :src="value.img" alt="">
         </el-carousel-item>
       </el-carousel>
     </div>
@@ -53,14 +53,19 @@ export default {
   data() {
     return {
       activeIndex: "1",
-      carousel: ''
+      carousel: []
     };
   },
   mounted(){
     this.axios.get('/carousel').then(res=>{
-      let a = res.data;
-      console.log(a);
-    })
+      let data = res.data.result;
+      // console.log(data);
+      data.forEach(item=>{
+        item.img = require("../assets/carousel/" + item.img);
+        this.carousel.push(item);
+      });
+    });
+      // console.log(this.carousel);
   },
   methods: {
     handleSelect(key, keyPath) {
