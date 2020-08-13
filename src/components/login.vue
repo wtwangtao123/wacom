@@ -1,5 +1,7 @@
 <template>
+  
   <div class="login_container">
+    
     <div class="login_logo">
       <img src="../assets/login/logo.png" alt />
     </div>
@@ -57,7 +59,9 @@
         
         </p>
     </div>
+    
   </div>
+ 
 </template>
 
 <script>
@@ -108,16 +112,18 @@ export default {
 }
 .login_box {
   display: flex;
+  margin-top: 40px;
   justify-content: center;
+  height:60%;
 }
 .login_box_2 {
-  width: 307px;
-  height: 451px;
+  width: 450px;
+  height: 545px;
   padding: 64px 28px 0 50px;
   font-size: 12px;
   overflow: hidden;
   background: url(../assets/login/shadow.gif) no-repeat left top;
-  background-color: #fff;
+  background-color: rgb(244, 244, 244);
   /* border: 1px solid red; */
   text-align: left;
 }

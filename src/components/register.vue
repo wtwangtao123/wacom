@@ -5,7 +5,7 @@
     </div>
     <div class="login_box">
       <div class="login_box_1">
-        <img src="../assets/login/pic01.jpg" alt />
+        <img src="../assets/login/pic01.jpg"  class="login_box_1" />
       </div>
       <div class="login_box_2">
         <img src="../assets/login/wel.png" alt />
@@ -215,6 +215,11 @@ export default {
 
 
 <style scoped>
+.login_box_1 {
+  height: 700px;
+  width: 670px;
+
+}
 .login_container {
   background-color: rgb(244, 244, 244);
   height: 100%;
@@ -228,13 +233,13 @@ export default {
   justify-content: center;
 }
 .login_box_2 {
-  width: 385px;
-  height: 550px;
+  width: 470px;
+  height: 700px;
   padding: 64px 28px 0 50px;
   font-size: 12px;
   overflow: hidden;
   background: url(../assets/login/shadow.gif) no-repeat left top;
-  background-color: #fff;
+  background-color: rgb(244, 244, 244);
   /* border: 1px solid red; */
   text-align: left;
 }
@@ -254,8 +259,8 @@ div.table > table > tr:nth-child(5) {
   line-height: 18px;
 }
 div.table > table > tr:nth-child(5) input {
-  width: 12px;
-  height: 12px;
+  width: 15px;
+  height: 15px;
 }
 div.table > table > tr:nth-child(5) a {
   color: #02a7e0;
@@ -319,5 +324,8 @@ div.table > table > tr > td > span {
   text-decoration: none;
   margin: 0 5px 0;
   color: #02a7e0;
+}
+.table td, .table th {
+  border: 0px;
 }
 </style>

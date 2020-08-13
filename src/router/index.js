@@ -3,9 +3,11 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Login from '../components/login.vue'
 import register from '../components/register.vue'
+import Carousel from '../components/carousel'
 Vue.use(VueRouter)
 
   const routes = [
+
     {
       path: '/register',
       component: register
@@ -17,7 +19,18 @@ Vue.use(VueRouter)
   {
     path: '/',
     name: 'Home',
-    component: Home
+    redirect: 'home',
+    component: Home,
+    children:[
+      {
+        path: '/home',
+        component: Carousel
+      },
+      { path:'/details/:lid',
+      component: ()=>
+        import(/* webpackChunkName: "Details" */ '../components/details.vue')
+      }
+    ]
   },
   {
     path: '/about',
