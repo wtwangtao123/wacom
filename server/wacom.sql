@@ -2,6 +2,57 @@ SET NAMES UTF8;
 DROP DATABASE IF EXISTS wacom;
 CREATE DATABASE wacom CHARSET UTF8;
 USE wacom;
+
+/**商品分类家族**/
+CREATE TABLE wacom_laptop_family(
+  fid INT PRIMARY KEY AUTO_INCREMENT,
+  fname VARCHAR(32)          #主题
+);
+
+-- 商品类别详情表
+CREATE TABLE wacom_classify_details(
+  did INT PRIMARY KEY AUTO_INCREMENT,
+  classify_id INT,             #类别id
+  com_id INT,                  #商品唯一id
+  com_code VARCHAR(32),         #商品编号
+  pic VARCHAR(1024)            #图片
+);
+
+/**商品**/
+CREATE TABLE wacom_laptop(
+  lid INT PRIMARY KEY AUTO_INCREMENT,
+  family_id INT,              #所属家族编号
+  title VARCHAR(128),         #主标题
+  subtitle VARCHAR(128),      #副标题
+  price DECIMAL(10,2),        #价格
+  prodect_id VARCHAR(64),     #商品唯一id
+  details VARCHAR(1024),      #产品详细说明
+  shelf  INT                 #库存
+
+  -- towhere VARCHAR(64),        #配送至
+  -- lname VARCHAR(32),          #商品名称
+  -- os VARCHAR(32),             #操作系统
+  -- memory VARCHAR(32),         #内存容量
+  -- resolution VARCHAR(32),     #分辨率
+  -- video_card VARCHAR(32),     #显卡型号
+  -- cpu VARCHAR(32),            #处理器
+  -- video_memory VARCHAR(32),   #显存容量
+  -- category VARCHAR(32),       #所属分类
+  -- disk VARCHAR(32),           #硬盘容量及类型
+
+  -- sold_count INT,             #已售出的数量
+  -- is_onsale BOOLEAN           #是否促销中
+);
+
+/**笔记本电脑图片**/
+CREATE TABLE wacom_laptop_pic(
+  pid INT PRIMARY KEY AUTO_INCREMENT,
+  laptop_id INT,              #商品唯一编号
+  pic VARCHAR(128)          #图片路径
+ 
+);
+
+
 -- 用户表
 CREATE TABLE user(
     uid int PRIMARY KEY AUTO_INCREMENT,
@@ -47,7 +98,115 @@ INSERT INTO wacom_carousel VALUES
 (NULL, '202007161101517261.jpg','轮播广告商品5','/login'),
 (NULL, '202007171653325569.jpg','轮播广告商品6','/login'),
 (NULL, '202007171653543266.jpg','轮播广告商品7','/login');
-SELECT * FROM user;
-SELECT * FROM  user_details;   
-DESC user;
-DESC user_details;
+
+INSERT INTO wacom_laptop_family VALUES
+    (NULL,'One by Wacom 学习板'),
+    (NULL,'Wacom  Intuos系列数位板'),
+    (NULL,'Wacom Intuos Pro 数位板'),
+    (NULL,'Wacom Cintiq 数位屏'),
+    (NULL,'Wacom one 创意数位屏'),
+    (NULL,'Wacom MobileStudio Pro'),
+    (NULL,'Bamboo智能生活科技'),
+    (NULL,'原装配件'),
+    (NULL,'Wacom官方认证开封品');
+
+-- 轮播图商品列表
+INSERT INTO wacom_classify_details VALUES
+    (NULL,1,1,'CTL-472/K1-F','0'),
+    (NULL,1,2,'CTL-672/K2-F','0'),
+    (NULL,2,3,'CTL-4100/K0-CX','0'),
+    (NULL,2,4,'CTL-6100/K0-CX','0'),
+    (NULL,2,5,'CTL-6100WL','0'),
+    (NULL,3,6,'PTH-660/K1- F','0'),
+    (NULL,3,7,'PTH-860/K1-F','0'),
+    (NULL,3,8,'PTH-660/K0-F','0'),
+    (NULL,3,9,'PTH-460/K0-CX','0'),
+    (NULL,3,10,'PTH-860/K0-F','0'),
+    (NULL,4,11,'DTK-2200/K0-F','0'),
+    (NULL,4,12,'DTH-3221/k0','0'),
+    (NULL,4,13,'DTK-2261/K0-FX','0'),
+    (NULL,4,14,'DTH-1620/AK0-F X','0'),
+    (NULL,5,15,'DTC133W0F','0'),
+    (NULL,6,16,'DTH-W1321L/K0-FX','0'),
+    (NULL,6,17,'DPM-W1000L/K0-FX','0'),
+    (NULL,6,18,'DTH-W1621H-K0F','0'),
+    (NULL,6,19,'DPM-W1000H/K0-FX','0'),
+    (NULL,6,20,'DTH-W1321H/K0-FX','0'),
+    (NULL,7,21,'CDS- 810S','0'),
+    (NULL,7,22,'CS-191','0'),
+    (NULL,8,23,'ACK-628-02-K-ZX','0'),
+    (NULL,8,24,'ACK-428-19-ZX','0'),
+    (NULL,8,25,'ACK-627-01-K-ZX','0'),
+    (NULL,9,26,'ACK-628-03-K- ZX','0'),
+    (NULL,9,27,'ACK627KZ1X','0'),
+    (NULL,9,28,'CDS-610S/G0-CX','0'),
+    (NULL,9,29,'ACK42819ZX','0');
+
+INSERT INTO wacom_laptop_pic VALUES 
+    (NULL,1,'201801161608394924.jpg'),
+    (NULL,1,'201801161608425333.jpg'),
+    (NULL,1,'201801161608451172.jpg'),
+    (NULL,1,'201801161608464391.jpg'),
+    (NULL,1,'201801161608477111.jpg'),
+    (NULL,1,'202002282145002989.jpg'),
+    (NULL,2,'201801161609251879.jpg'),
+    (NULL,2,'201801161609264988.jpg'),
+    (NULL,2,'201801161609276178.jpg'),
+    (NULL,2,'201801161609285578.jpg'),
+    (NULL,2,'201801161609297247.jpg'),
+    (NULL,3,'201803121709264056.jpg'),
+    (NULL,3,'201803121709266086.jpg'),
+    (NULL,3,'201803121709266206.jpg'),
+    (NULL,3,'201803121709268196.jpg'),
+    (NULL,3,'201803121709272466.jpg'),
+    (NULL,4,'201803121703411980.jpg'),
+    (NULL,4,'201803121703428399.jpg'),
+    (NULL,4,'202002281056166019.jpg'),
+    (NULL,5,'201804120918470141.jpg'),
+    (NULL,5,'201804120918465021.jpg'),
+    (NULL,5,'201804120918475261.jpg'),
+    (NULL,5,'201804120918471051.jpg'),
+    (NULL,5,'201806191804562038.jpg'),
+    (NULL,6,'202002282306588182.jpg'),
+    (NULL,7,'201801121516576936.jpg'),
+    (NULL,7,'201801121516587275.jpg'),
+    (NULL,7,'201801121516577396.jpg'),
+    (NULL,7,'202002281058260853.jpg'),
+    (NULL,8,'201801120956588768.jpg'),
+    (NULL,8,'201801120957005997.jpg'),
+    (NULL,9,'202002261636183912.jpg'),
+    (NULL,9,'202002261636188652.jpg'),
+    (NULL,9,'202002281059016673.jpg'),
+    (NULL,10,'201801121515388171.jpg'),
+    (NULL,10,'201801121515396371.jpg'),
+    (NULL,10,'201801121515399601.jpg'),
+    (NULL,11,'201708161357214993.jpg'),
+    (NULL,11,'201708161357215032.jpg'),
+    (NULL,12,'201809181437422056.png'),
+    (NULL,13,'201907221309198651.png'),
+    (NULL,14,'202002282323443012.jpg'),
+
+    (NULL,15,'202002282323443012.jpg'),
+    (NULL,16,'201801161608477111.jpg'),
+    (NULL,17,'201801161608477111.jpg'),
+    (NULL,18,'201801161608477111.jpg'),
+    (NULL,19,'201801161608477111.jpg'),
+    (NULL,20,'201801161608477111.jpg'),
+    (NULL,21,'201801161608477111.jpg'),
+    (NULL,22,'201801161608477111.jpg'),
+    (NULL,23,'201801161608477111.jpg'),
+    (NULL,24,'201801161608477111.jpg'),
+    (NULL,25,'201801161608477111.jpg'),
+    (NULL,26,'201801161608477111.jpg'),
+    (NULL,27,'201801161608477111.jpg'),
+    (NULL,28,'201801161608477111.jpg'),
+    (NULL,29,'201801161608477111.jpg');
+    
+    
+
+   
+
+-- SELECT * FROM user;
+-- SELECT * FROM  user_details;   
+-- DESC user;
+-- DESC user_details;
