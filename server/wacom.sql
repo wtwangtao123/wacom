@@ -22,11 +22,10 @@ CREATE TABLE wacom_classify_details(
 CREATE TABLE wacom_laptop(
   lid INT PRIMARY KEY AUTO_INCREMENT,
   family_id INT,              #所属家族编号
+  prodect_id VARCHAR(64),     #商品唯一id
   title VARCHAR(128),         #主标题
   subtitle VARCHAR(128),      #副标题
   price DECIMAL(10,2),        #价格
-  prodect_id VARCHAR(64),     #商品唯一id
-  details VARCHAR(1024),      #产品详细说明
   shelf  INT                 #库存
 
   -- towhere VARCHAR(64),        #配送至
@@ -202,7 +201,41 @@ INSERT INTO wacom_laptop_pic VALUES
     (NULL,28,'201801161608477111.jpg'),
     (NULL,29,'201801161608477111.jpg');
     
+    --wacom_laptop数据
+INSERT INTO wacom_laptop VALUES
+    (NULL,1,1,'One by Wacom 学习板CTL-472/K1-F ','Wacom新品CTL-472数位学习板小号红黑版 手绘图画电子手写设计471新一代','399.00','1'),
+    (NULL,1,2,'One by Wacom 学习板CTL-672/K2-F ','Wacom新品CTL-672数位学习板中号红黑版 手绘图画电子手写设计671新一代','599.00','192'),
+    (NULL,2,3,'【新品上市 2018红点设计大奖】Wacom新一代影拓CTL-4100小号数位板 ','Intuos手绘画电子手写设计','599.00','24'),
+    (NULL,2,4,'【新品上市 2018红点设计大奖】Wacom新一代影拓CTL-6100中号数位板 ','Intuos手绘画电子手写设计','999.00','27'),
+    (NULL,2,5,'【新品上市 2018红点设计大奖】Wacom新一代影拓CTL-6100WL中号多彩无线数位板 ','Intuos手绘画电子手写设计','1480','20'),
+    (NULL,3,6,'Wacom Intuos Pro 数位板 PTH-660/K1-F ','Wacom影拓Pro PTH-660中号触控数位板Intuos专业手绘图画手写设计','3280','25'),
+    (NULL,3,7,'Wacom Intuos Pro 数位板 PTH-860/K1-F ','Wacom影拓Pro PTH-860大号触控数位板Intuos专业手绘图画手写设计','4380.00','76'),
+    (NULL,3,8,'Wacom Intuos Pro 数位板 PTH-660/K0-F ','Wacom影拓Pro PTH-660中号触控数位板Intuos专业手绘图画手写设计','2880','16'),
+
+    (NULL,3,9,'Wacom影拓Pro PTH-460 S号专业数位板Intuos专业手绘图画手写设计 ','','1999','20'),
+
+    (NULL,3,10,'Wacom Intuos Pro 数位板 PTH-860/K0-F ','Wacom影拓Pro PTH-860大号触控数位板Intuos专业手绘图画手写设计','3980','83'),
+    (NULL,4,11,'Wacom Cintiq 新帝数位屏 DTK-2200/K0-F ','Wacom新帝21.5寸DTK-2200数位屏 专业手绘图画高清液晶手写设计','17800','20'),
+    (NULL,4,12,'Wacom Cintiq Pro 32英寸 触控液晶数位屏DTH-3221 ','Wacom Cintiq Pro 32英寸 触控液晶数位屏DTH-3221','29800','2'),
+    (NULL,4,13,'WacomCintiq22创意数位屏DTK2261 ','','19800','10'),
+    (NULL,4,14,'Wacom Cintiq Pro 数位屏 DTH-1620/AK0-FX ','新升级Wacom新帝Pro15.6寸DTH-1620数位屏专业手绘图画4K高清液晶手写板','11800','1'),
+    (NULL,5,15,'One by Wacom 学习板CTL-472/K1-F ','Wacom新品CTL-472数位学习板小号红黑版 手绘图画电子手写设计471新一代','399.00','1'),
+    (NULL,6,16,'One by Wacom 学习板CTL-672/K2-F ','Wacom新品CTL-672数位学习板中号红黑版 手绘图画电子手写设计671新一代','599.00','192'),
+    (NULL,6,17,'【新品上市 2018红点设计大奖】Wacom新一代影拓CTL-4100小号数位板 ','Intuos手绘画电子手写设计','599.00','24'),
+    (NULL,6,18,'【新品上市 2018红点设计大奖】Wacom新一代影拓CTL-6100中号数位板 ','Intuos手绘画电子手写设计','999.00','27'),
+    (NULL,6,19,'【新品上市 2018红点设计大奖】Wacom新一代影拓CTL-6100WL中号多彩无线数位板 ','Intuos手绘画电子手写设计','1480','20'),
+    (NULL,6,20,'Wacom Intuos Pro 数位板 PTH-660/K1-F ','Wacom影拓Pro PTH-660中号触控数位板Intuos专业手绘图画手写设计','3280','25'),
+    (NULL,7,21,'Wacom Intuos Pro 数位板 PTH-860/K1-F ','Wacom影拓Pro PTH-860大号触控数位板Intuos专业手绘图画手写设计','4380.00','76'),
+    (NULL,7,22,'Wacom Intuos Pro 数位板 PTH-660/K0-F ','Wacom影拓Pro PTH-660中号触控数位板Intuos专业手绘图画手写设计','2880','16'),
+    (NULL,8,23,'Wacom影拓Pro PTH-460 S号专业数位板Intuos专业手绘图画手写设计 ','','1999','20'),
+    (NULL,8,24,'Wacom Intuos Pro 数位板 PTH-860/K0-F ','Wacom影拓Pro PTH-860大号触控数位板Intuos专业手绘图画手写设计','3980','83'),
+    (NULL,8,25,'Wacom Cintiq 新帝数位屏 DTK-2200/K0-F ','Wacom新帝21.5寸DTK-2200数位屏 专业手绘图画高清液晶手写设计','17800','20'),
+    (NULL,9,26,'Wacom Cintiq Pro 32英寸 触控液晶数位屏DTH-3221 ','Wacom Cintiq Pro 32英寸 触控液晶数位屏DTH-3221','29800','2'),
+    (NULL,9,27,'WacomCintiq22创意数位屏DTK2261 ','','19800','10'),
+    (NULL,9,28,'Wacom Cintiq Pro 数位屏 DTH-1620/AK0-FX ','新升级Wacom新帝Pro15.6寸DTH-1620数位屏专业手绘图画4K高清液晶手写板','11800','1'),
+    (NULL,9,29,'Wacom Cintiq Pro 数位屏 DTH-1620/AK0-FX ','新升级Wacom新帝Pro15.6寸DTH-1620数位屏专业手绘图画4K高清液晶手写板','11800','1')
     
+
 
    
 

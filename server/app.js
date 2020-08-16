@@ -120,7 +120,7 @@ server.get('/submenu', (req, res) => {
                     })
                     // console.log(result_1);
                     if(n == number.length-1){
-                        console.log(result_1);
+                        // console.log(result_1);
                         res.send({message:'ok',code:1,result:result_1});
                     }
                 })
@@ -133,9 +133,61 @@ server.get('/submenu', (req, res) => {
     })
 })
 
-// // 获取li里面的图片数据
-// server.get('/image',(req,res)=>{
-   
-// })
+// 获取详细信息
+server.get('/message',(req,res)=>{
+    let id = req.query.id;
+    // console.log(id);
+    let sql = 'SELECT family_id AS fid,title,subtitle,price,shelf FROM wacom_laptop WHERE prodect_id = ?';
+    pool.query(sql,[id],(err,result)=>{
+        if(err) throw err;
+        // console.log(result);
+        let data1 = result[0];
+        let fid = data1.fid;
+        // console.log(fid);
+        sql = 'SELECT com_code AS ccd FROM wacom_classify_details WHERE com_id = ?';
+        pool.query(sql,[id],(err,result)=>{
+            if (err) throw err;
+            data1.ccd = result[0].ccd;
+        });
+        sql = 'SELECT fname FROM wacom_laptop_family WHERE fid = ?';
+        pool.query(sql,[fid],(err,result)=>{
+            if (err) throw err;
+            // console.log(result);
+            data1.fname = result[0].fname;
+            // console.log(data1);
+            sql = 'SELECT pic FROM wacom_laptop_pic WHERE laptop_id = ?';
+            pool.query(sql,[id],(err,result)=>{
+                if (err) throw err;
+                // console.log(result);
+                data1.pic = result;
+                console.log(data1);
+                res.send({message:'ok',code:1,result:data1});
+            })
+        })
+    })
+
+})
+// 获取列表页的数据
+server.get('/prodectList',(req,res)=>{
+    let lid = req.query.lid;
+    let sql = 'SELECT prodect_id AS pid,title,subtitle,price FROM wacom_laptop WHERE family_id = ?';
+    pool.query(sql,[lid],(err,result)=>{
+        if (err) throw err;
+        let result_1 = result;
+        result_1.forEach((item,i)=>{
+            let id = item.pid;
+            sql = 'SELECT pic FROM wacom_laptop_pic WHERE laptop_id = ?';
+            pool.query(sql,[id],(err,result)=>{
+                if (err) throw err;
+                item.pic = result[0].pic;
+                if(i == result_1.length - 1) {
+                    res.send({message:'ok',code:1,result:result_1});
+                    console.log('发送成功');
+                }
+            })
+        })
+        
+    })
+})
 console.log('服务器启动成功');
 
