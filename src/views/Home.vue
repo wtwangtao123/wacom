@@ -4,12 +4,10 @@
     <!-- 轮播图 -->
     <!-- <Carousel></Carousel> -->
     <router-view></router-view>
+    <my-footer></my-footer>
   </div>
 </template>
 
 <script>
-  // import Carousel from '../components/carousel'
-  // export default {
-  //   components: {Carousel}
-  // }
+
 </script>

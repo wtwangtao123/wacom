@@ -4,14 +4,18 @@ import Home from '../views/Home.vue'
 import Login from '../components/login.vue'
 import register from '../components/register.vue'
 import Carousel from '../components/carousel'
+import Prodect from '../components/prodectList'
 Vue.use(VueRouter)
 
-  const routes = [
-
-    {
-      path: '/register',
-      component: register
-    },
+const routes = [
+  {
+    path: '/prodect/:lid',
+    component: Prodect
+  },
+  {
+    path: '/register',
+    component: register
+  },
   {
     path: '/login',
     component: Login
@@ -21,14 +25,15 @@ Vue.use(VueRouter)
     name: 'Home',
     redirect: 'home',
     component: Home,
-    children:[
+    children: [
       {
         path: '/home',
         component: Carousel
       },
-      { path:'/details/:lid',
-      component: ()=>
-        import(/* webpackChunkName: "Details" */ '../components/details.vue')
+      {
+        path: '/details/:lid',
+        component: () =>
+          import(/* webpackChunkName: "Details" */ '../components/details.vue')
       }
     ]
   },

@@ -52,33 +52,6 @@
             >
               <a class="nav-link" href="#">{{value.name}}</a>
             </li>
-            <!-- <li class="nav-item" >
-                        <a class="nav-link" href="#">首页</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">所有产品</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">数位板</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link " href="#">数位屏</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">移动电脑</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Bamboo</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link " href="#">原装配件</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">在线教育</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">下载专区</a>
-            </li>-->
           </ul>
         </div>
         <div class="navbar navbar-light bg-light offset-3">
@@ -117,6 +90,9 @@ export default {
   methods: {
     checkTab(value) {
       this.currentTab = value;
+      if(value > 0 && value <= 8){
+        this.$router.push('/prodect',)
+      }
     },
   },
 };

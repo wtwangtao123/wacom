@@ -23,7 +23,7 @@
                   <img :src="item.pic[0]" alt class="col-2 ml-2 my_items_img" />
                   <div class="col-6 my_items_span">{{item.com_code}}</div>
                   <div class="col-2">
-                    <router-link class="btn btn-outline-info my_items_btn mt-4 ml-3" :to="`/details/2`">查看</router-link>
+                    <router-link class="btn btn-outline-info my_items_btn mt-4 ml-3" :to="`/details/${item.com_id}`">查看</router-link>
                     
                   </div>
                 </div>
@@ -66,16 +66,24 @@ export default {
   },
   mounted() {
     // 获取轮播图数据
-    this.axios.get("/carousel").then((res) => {
+    this.$api.getCarousel().then((res) => {
       let data = res.data.result;
       // console.log(data);
       data.forEach((item) => {
         item.img = require("../assets/carousel/" + item.img);
         this.carousel.push(item);
       });
-    });
+    })
+    // this.axios.get("/carousel").then((res) => {
+    //   let data = res.data.result;
+    //   // console.log(data);
+    //   data.forEach((item) => {
+    //     item.img = require("../assets/carousel/" + item.img);
+    //     this.carousel.push(item);
+    //   });
+    // });
     // 获取轮播图上li的数据
-    this.axios.get("/product").then((res) => {
+    this.$api.getProductList().then((res) => {
       this.classify = res.data.result;
       // console.log(this.classify);
     });
