@@ -70,6 +70,7 @@
   </div>
 </template>
 <script>
+import loginVue from './login.vue';
 export default {
   data() {
     return {
@@ -90,11 +91,19 @@ export default {
   methods: {
     checkTab(value) {
       this.currentTab = value;
-      if(value > 0 && value <= 8){
-        this.$router.push('/prodect',)
+      // console.log(this.currentTab);
+      if(this.currentTab > 0 && this.currentTab <= 8){
+        this.$router.push("/prodect/" + this.currentTab)
       }
     },
   },
+  // watch: {
+  //   checkTab(){
+  //     if(this.checkTab > 0 && this.checkTab <= 8){
+  //       this.$router.push("/prodect/" + this.checkTab)
+  //     }
+  //   }
+  // }
 };
 </script>
 <style scoped>

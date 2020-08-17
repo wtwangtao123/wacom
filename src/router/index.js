@@ -10,7 +10,8 @@ Vue.use(VueRouter)
 const routes = [
   {
     path: '/prodect/:lid',
-    component: Prodect
+    component: Prodect,
+    // props: true
   },
   {
     path: '/register',
@@ -34,7 +35,14 @@ const routes = [
         path: '/details/:lid',
         component: () =>
           import(/* webpackChunkName: "Details" */ '../components/details.vue')
-      }
+      },
+      // {
+      //   path: '/prodect/:lid',
+      //   props: true,
+      //   component: () =>
+      //     import(/* webpackChunkName: "Prodect" */ '../components/prodectList.vue')
+      // },
+  
     ]
   },
   {

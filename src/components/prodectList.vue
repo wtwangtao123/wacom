@@ -51,17 +51,26 @@
 
 <script>
     export default {
+        // props:["lid"],
         data(){
             return {
-                data: []
+                data: [],
+                id: ''
             }
         },
         mounted(){
-            // let id = this.$route.params
-            this.getData()
+            this.id = this.$route.params.lid;
+            // console.log(this.id);
+            this.getData(this.id)
         },
+        // updated(){
+        //     this.id = this.$route.params.lid
+        //     this.getData(this.id)
+        // },
         methods: {
             getData(value = 3){
+                
+                // console.log(id);
                 this.axios.get('/prodectList?lid=' + value).then(res=>{
                     let r = res.data.result;
                     r.forEach((item,i)=>{
@@ -70,7 +79,13 @@
                     this.data = r;
                 })
             }
-        }
+        },
+        // watch: {
+        //     id(){
+        //         // this.getData(this.id)
+        //         console.log(this.id);
+        //     }
+        // }
     }
 </script>
 
